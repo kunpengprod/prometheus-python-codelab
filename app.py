@@ -20,7 +20,6 @@ app = Flask(__name__)
 @REQUEST_TIME.time()
 def index():
     REQUEST_COUNT.labels('/').inc()
-    print "Responding to client."
     html = "<h3>Hello, World!</h3>\n"
     time.sleep(random.random())
     return html
@@ -29,8 +28,7 @@ def index():
 @REQUEST_TIME.time()
 def contact():
     REQUEST_COUNT.labels('/contact').inc()
-    print "Responding to client in Chinese."
-    html = "<h3>Please call us at +1 234 567 8901</h3>\n"
+    html = "<h3>Please contact us at dummy-email@example.com </h3>\n"
     time.sleep(random.random() + 0.5)
     return html
 
